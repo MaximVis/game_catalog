@@ -1,9 +1,11 @@
 # Используем официальный образ PHP с FPM
 FROM php:8.3-fpm
 
-# Устанавливаем системные зависимости
+# Устанавливаем системные зависимости включая PostgreSQL
 RUN apt-get update && apt-get install -y \
     nginx \
+    libpq-dev \
+    && docker-php-ext-install pdo pdo_pgsql pgsql \
     && rm -rf /var/lib/apt/lists/*
 
 # Копируем конфигурации
