@@ -1,0 +1,24 @@
+# Используем официальный образ PHP с FPM
+FROM php:8.3-fpm
+
+# Устанавливаем системные зависимости
+RUN apt-get update && apt-get install -y \
+    nginx \
+    && rm -rf /var/lib/apt/lists/*
+
+# Копируем конфигурации
+COPY nginx.conf /etc/nginx/sites-available/default
+COPY --chown=www-data:www-data . /var/www/html
+
+# Устанавливаем рабочую директорию
+WORKDIR /var/www/html
+
+# Создаем симлинк для nginx
+RUN ln -sf /dev/stdout /var/log/nginx/access.log \
+    && ln -sf /dev/stderr /var/log/nginx/error.log
+
+# Открываем порт
+EXPOSE 80
+
+# Запускаем сервисы
+CMD sh -c "php-fpm -D && nginx -g 'daemon off;'"
