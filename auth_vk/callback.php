@@ -1,6 +1,6 @@
 <?php
-session_start();
-require_once '../auth_func.php';
+// session_start();
+// require_once '../auth_func.php';
 
 $client_id = '54349334'; // Замените на ваш ID
 $client_secret = 'zVJ0tun5n2uxKo7PPKCB'; // Замените на ваш защищенный ключ
