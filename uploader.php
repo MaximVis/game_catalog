@@ -69,7 +69,7 @@ $success = true;
 
 if ($query == 'add_game' || $query == 'update_game')//страница игр
 {
-    $serverPathDevelopers = '/usr/share/nginx/layout/game_imgs/';
+    $serverPathDevelopers = '/var/www/html/uploads/game_imgs/';
     $array_data = array();
 
     if (isset($_POST['game_id'])) {//обновление данных игры update_game
@@ -159,7 +159,7 @@ elseif($query == "delete_developer" || $query == "delete_game"){//удалени
 
     if ($query == "delete_game")//удаление игры
     {
-        $serverPathGames = '/usr/share/nginx/layout/game_imgs/';
+        $serverPathGames = '/var/www/html/uploads/game_imgs/';
         
         $game_id = $_POST["game_id"];
 
@@ -193,8 +193,8 @@ elseif($query == "delete_developer" || $query == "delete_game"){//удалени
     }
     else//удаление разработчика(и его игр)
     {
-        $serverPathGames = '/usr/share/nginx/layout/game_imgs/';//добавить удаление жанров и категрирй связанных с игрой!!!!!!
-        $serverPathDevelopers = '/usr/share/nginx/layout/devs_imgs/';
+        $serverPathGames = '/var/www/html/uploads/game_imgs/';//добавить удаление жанров и категрирй связанных с игрой!!!!!!
+        $serverPathDevelopers = '/var/www/html/uploads/devs_imgs/';
         $developerName = $_POST["developer_name"]; // имя автора для удаления
 
         try {
@@ -311,7 +311,7 @@ elseif($query == "delete_genre" || $query == "update_genre" || $query == "create
 }
 else{//страница разрабочтиков
 
-    $serverPathDevelopers = '/usr/share/nginx/layout/devs_imgs/';
+    $serverPathDevelopers = '/var/www/html/uploads/devs_imgs/';
     $array_data = array();
 
     if(isset($_POST['developer_name']))
