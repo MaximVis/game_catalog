@@ -42,11 +42,9 @@
         <form method="GET" action="auth_vk/index.php">
             <button type="submit" name="auth">Войти VK</button>
         </form>
-        <a href="auth_vk/vk_auth.php" class="vk-auth-btn">
-                Войти через VK
-        </a>
     </div>
 
 </body>
+
 
 </html>
