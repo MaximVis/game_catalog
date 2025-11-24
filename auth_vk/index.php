@@ -1,6 +1,4 @@
 <?php
-// session_start();
-// require_once '../auth_func.php';
 
 // Конфигурация VK OAuth
 $client_id = '54349334'; // Замените на ваш ID приложения
