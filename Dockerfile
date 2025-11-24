@@ -8,6 +8,11 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install pdo pdo_pgsql pgsql \
     && rm -rf /var/lib/apt/lists/*
 
+# Создаем директории для загрузки файлов
+RUN mkdir -p /var/www/html/uploads/game_imgs /var/www/html/uploads/devs_imgs \
+    && chown -R www-data:www-data /var/www/html/uploads \
+    && chmod -R 755 /var/www/html/uploads
+
 # Копируем конфигурации
 COPY nginx.conf /etc/nginx/sites-available/default
 COPY --chown=www-data:www-data . /var/www/html
